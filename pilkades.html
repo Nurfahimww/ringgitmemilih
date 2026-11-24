@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringgit Memilih</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        desa: {
+                            green: '#064e3b',      // Hijau Tua Wibawa (Emerald 900)
+                            greenLight: '#047857', // Emerald 700
+                            navy: '#0f172a',       // Biru Tua Gelap (Slate 900)
+                            blue: '#1e3a8a',       // Biru Pemerintahan (Blue 900)
+                            gold: '#d97706',       // Emas Aksen (Amber 600)
+                            goldLight: '#fbbf24',  // Emas Terang (Amber 400)
+                            cream: '#f8fafc',      // Latar Bersih
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- Top Bar Informasi Resmi -->
+    <div class="bg-desa-navy text-slate-200 text-xs py-2 px-4 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Portal Informasi Resmi Pemilihan Kepala Desa Serentak, Desa Ringgit Tahun 2026-2027</span>
+            </div>
+            <div class="flex items-center gap-4 text-slate-300">
+                <span class="hidden md:inline"><i class="fa-solid fa-location-dot text-amber-400 mr-1"></i> Sekretariat: Balai Desa Ringgit</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigasi Utama -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand & Logo SVG -->
+                <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-white p-1.5 flex items-center justify-center shadow-md border border-slate-200 group-hover:scale-105 transition-transform overflow-hidden">                        <!-- Logo Panitia Pemilihan SVG -->
+                        <!-- svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg"></svg -->
+                        <img src="gambar/Purworejo.png" alt="Logo Pilkades Desa Ringgit" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <span class="block text-base sm:text-lg font-extrabold text-slate-900 leading-tight">PILKADES 2026-2027</span>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#beranda" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Beranda</a>
+                    <a href="#jadwal" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Jadwal Tahapan</a>
+                    <a href="#persyaratan" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Syarat Pencalonan</a>
+                    <a href="#bakal-calon" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Bakal Calon</a>
+                    <a href="#faq" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">FAQ</a>
+                </div>
+
+                <!-- Tombol Menu Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-desa-green" aria-label="Buka Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dropdown Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#beranda" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Beranda</a>
+            <a href="#jadwal" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Jadwal Tahapan</a>
+            <a href="#persyaratan" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Syarat Pencalonan</a>
+            <a href="#bakal-calon" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Bakal Calon Terdaftar</a>
+            <a href="#faq" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">FAQ & Sekretariat</a>
+        </div>
+    </nav>
+
+    <!-- 1. HEADER / HERO SECTION -->
+    <header id="beranda" class="relative overflow-hidden bg-gradient-to-br from-desa-navy via-desa-green to-desa-blue text-white pt-12 pb-24 lg:pt-20 lg:pb-32">
+        <!-- Pola Latar Belakang Geometris Halus -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Emblem / Logo Besar Panitia -->
+        <div
+            class="mx-auto w-24 h-24 sm:w-28 sm:h-28 mb-6 rounded-2xl bg-white/10 backdrop-blur-md border-2 border-amber-400/60 p-3 shadow-2xl flex items-center justify-center overflow-hidden">
+            <img src="gambar/Purworejo.png" alt="Logo Panitia Pemilihan Kepala Desa Ringgit" class="w-full h-full object-contain">
+        </div>
+
+            <!-- Badge Nomor Surat Pengumuman -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-semibold mb-5">
+                <i class="fa-solid fa-scroll"></i>
+                <span>Nomor Pengumuman: 100.3.2.5/05/2026</span>
+            </div>
+
+            <!-- Judul Resmi -->
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight mb-4">
+                PANITIA PEMILIHAN KEPALA DESA <span class="text-amber-400 block sm:inline">DESA RINGGIT</span>
+            </h1>
+
+            <!-- Subjudul -->
+            <p class="text-lg sm:text-xl lg:text-2xl font-medium text-emerald-100 max-w-3xl mx-auto mb-6">
+                Pengumuman Resmi Pendaftaran Bakal Calon Kepala Desa
+            </p>
+            <p class="text-lg sm:text-xl lg:text-2xl font-medium text-emerald-100 max-w-3xl mx-auto mb-6">
+                Desa Ringgit, Kecamatan Ngombol, Kabupaten Purworejo
+            </p>
+
+            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                
+            </p>
+
+            <!-- Tombol CTA -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#persyaratan" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-base shadow-lg shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <span>Lihat Persyaratan</span>
+                </a>
+                <a href="#jadwal" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold text-base transition-all flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-calendar-check"></i>
+                    <span>Jadwal Tahapan</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. COUNTDOWN TIMER INTERAKTIF -->
+    <section class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-14 mb-16">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full mb-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+                        Tahap Pendaftaran Dibuka
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-bold text-slate-900">Batas Akhir Pendaftaran Bakal Calon</h2>
+                    <p class="text-sm text-slate-600 mt-1">Penutupan berkas pendaftaran pada <strong class="text-slate-900" id="deadline-text">Senin, 07 Desember 2026 Pukul 16.00 WIB</strong></p>
+                </div>
+
+                <!-- Kotak Hitung Mundur -->
+                <div class="grid grid-cols-4 gap-2 sm:gap-4 w-full lg:w-auto">
+                    <div class="bg-slate-900 text-white rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] border-b-4 border-amber-500">
+                        <span id="cd-days" class="block text-2xl sm:text-3xl font-extrabold text-amber-400">13</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Hari</span>
+                    </div>
+                    <div class="bg-slate-900 text-white rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] border-b-4 border-amber-500">
+                        <span id="cd-hours" class="block text-2xl sm:text-3xl font-extrabold text-white">01</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Jam</span>
+                    </div>
+                    <div class="bg-slate-900 text-white rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] border-b-4 border-amber-500">
+                        <span id="cd-minutes" class="block text-2xl sm:text-3xl font-extrabold text-white">18</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Menit</span>
+                    </div>
+                    <div class="bg-slate-900 text-white rounded-xl p-3 sm:p-4 text-center min-w-[70px] sm:min-w-[85px] border-b-4 border-emerald-500">
+                        <span id="cd-seconds" class="block text-2xl sm:text-3xl font-extrabold text-emerald-400">00</span>
+                        <span class="text-[11px] sm:text-xs uppercase tracking-wider text-slate-300 font-medium">Detik</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. JADWAL & TAHAPAN PILKADES -->
+    <section id="jadwal" class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-xs font-bold tracking-wider uppercase text-amber-600 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">Agenda</span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-3">Jadwal & Tahapan Pilkades 2026</h2>
+            <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                Rangkaian tahapan penyelenggaraan Pemilihan Kepala Desa Ringgit dilaksanakan secara transparan, akuntabel, dan tepat waktu sesuai ketentuan perundang-undangan.
+            </p>
+        </div>
+
+        <!-- Filter Status Tahapan -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button onclick="filterTahapan('semua')" id="btn-filter-semua" class="filter-tahapan-btn px-4 py-2 rounded-xl text-sm font-semibold bg-desa-green text-white shadow-sm transition">
+                Semua Tahapan (6)
+            </button>
+            <button onclick="filterTahapan('berlangsung')" id="btn-filter-berlangsung" class="filter-tahapan-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition">
+                Sedang Berlangsung
+            </button>
+            <button onclick="filterTahapan('mendatang')" id="btn-filter-mendatang" class="filter-tahapan-btn px-4 py-2 rounded-xl text-sm font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition">
+                Akan Datang
+            </button>
+        </div>
+
+        <!-- Timeline / Kartu Jadwal -->
+        <div id="timeline-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Item 1 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border-2 border-emerald-500 relative overflow-hidden transition hover:shadow-md" data-status="berlangsung">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-lg">01</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                        Sedang Berlangsung
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Pengumuman & Pendaftaran Bakal Calon</h3>
+                <p class="text-sm text-amber-700 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 24 November – 03 Desember 2026
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    
+                </p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md" data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">02</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Verifikasi dan validasi Kelengkapan Persyaratan Administrasi</h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 15 Januari – 19 Januari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    
+                </p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md" data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">03</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Pengumuman hasil verifikasi dan validasi Kelengkapan Persyaratan Administrasi Bakal Calon Kepala Desa</h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 20 Januari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    
+                </p>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md" data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">04</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Penyampaian masukan masyarakat terhadap persyaratan Bakal Calon Kepala Desa</h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 20 - 22 Januari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                </p>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md" data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">05</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Tindak lanjut terhadap masukan masyarakat atas persyaratan Bakal Calon Kepala Desa</h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 25  – 26 Januari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    
+                </p>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md" data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">06</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Penetapan Calon Kepala Desa dan Pengumuman Calon Kepala Desa</h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 1 Februari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                </p>
+            </div>
+            <!-- Item 7 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md"
+                data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span
+                        class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">07</span>
+                    <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Kampanye
+                </h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 12 - 16 Februari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                </p>
+            </div>
+            <!-- Item 8 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md"
+                data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span
+                        class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">08</span>
+                    <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Masa Tenang
+                </h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 17 - 19 Februari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                </p>
+            </div>
+            <!-- Item 9 -->
+            <div class="tahapan-card bg-white rounded-2xl p-6 shadow-sm border border-slate-200 relative overflow-hidden transition hover:shadow-md"
+                data-status="mendatang">
+                <div class="flex items-center justify-between mb-4">
+                    <span
+                        class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 font-extrabold flex items-center justify-center text-lg">09</span>
+                    <span
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                        <i class="fa-regular fa-clock"></i> Akan Datang
+                    </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Pemungutan Suara
+                </h3>
+                <p class="text-sm text-blue-800 font-semibold mb-3 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar"></i> 22 Februari 2027
+                </p>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SYARAT PENCALONAN (BERDASARKAN UU DESA) -->
+    <section id="persyaratan" class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-3">Persyaratan Pencalonan Kepala Desa</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    Calon Kepala Desa wajib memenuhi persyaratan umum dan melengkapi seluruh berkas administrasi yang telah ditetapkan oleh panitia.
+                </p>,
+            </div>
+
+            <!-- Kontainer Tab -->
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                <!-- Header Tab -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 border-b border-slate-200 bg-slate-50">
+                    <button id="tab-btn-umum" onclick="switchSyaratTab('umum')" class="py-4 px-6 text-sm sm:text-base font-bold text-left sm:text-center flex items-center justify-center gap-2 border-b-4 border-desa-green bg-white text-desa-green transition">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>A. Persyaratan Umum Calon</span>
+                    </button>
+                    <button id="tab-btn-berkas" onclick="switchSyaratTab('berkas')" class="py-4 px-6 text-sm sm:text-base font-bold text-left sm:text-center flex items-center justify-center gap-2 border-b-4 border-transparent text-slate-600 hover:text-slate-900 transition">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span>B. Kelengkapan Berkas Administrasi</span>
+                    </button>
+                </div>
+
+                <!-- Isi Tab 1: Persyaratan Umum -->
+                <div id="tab-content-umum" class="p-6 sm:p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">1</div>
+                            <p class="text-sm text-slate-700 leading-relaxed"><strong>Warga Negara Indonesia (WNI)</strong></p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div
+                                class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">2</div>
+                            <p class="text-sm text-slate-700 leading-relaxed"><strong>Bertakwa kepada Tuhan Yang Maha Esa</strong></p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">3</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Memegang teguh dan mengamalkan Pancasila, melaksanakan Undang-Undang Dasar Negara Republik Indonesia Tahun 1945, serta
+                            mempertahankan dan memelihara keutuhan Negara Kesatuan Republik Indonesia dan Bhinneka Tunggal Ika</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">4</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Berpendidikan paling rendah tamat <strong>sekolah menengah pertama atau sederajat</strong></p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">5</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Berusia paling rendah <strong>25 (dua puluh lima) tahun</strong> pada saat mendaftar</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">6</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Bersedia dicalonkan menjadi Kepala Desa</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">7</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Tidak sedang menjalani hukuman pidana penjara.</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">8</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Tidak pernah dijatuhi pidana penjara berdasarkan putusan pengadilan yang telah mempunyai kekuatan hukum tetap karena
+                            melakukan tindak pidana yang diancam dengan pidana penjara paling singkat 5 (lima) tahun atau lebih, kecuali 5 (lima)
+                            tahun setelah selesai menjalani pidana penjara dan mengumumkan secara jujur dan terbuka kepada publik bahwa yang
+                            bersangkutan pernah dipidana serta bukan sebagai pelaku kejahatan berulang-ulang</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">9</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Tidak sedang dicabut hak pilihnya sesuai dengan putusan pengadilan yang telah mempunyai kekuatan hukum tetap</p>
+                        </div>
+                         <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">10</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Berbadan sehat</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">11</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Bebas narkoba</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">12</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Berkelakuan baik</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">13</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Mendapatkan izin tertulis dari atasan atau pejabat yang berwenang, bagi Bakal Calon yang berstatus sebagai PNS</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">14</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Mendapatkan izin tertulis dari atasan atau pejabat yang berwenang, bagi Bakal Calon yang berstatus sebagai PPPK</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">15</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Bersedia bertempat tinggal di Desa yang bersangkutan selama menjabat sebagai Kepala Desa</p>
+                        </div>
+                        <div class="flex items-start gap-3.5 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <div class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">16</div>
+                            <p class="text-sm text-slate-700 leading-relaxed">Tidak pernah sebagai Kepala Desa selama 3 kali masa jabatan</p>
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <!-- Isi Tab 2: Kelengkapan Berkas Administrasi -->
+                <div id="tab-content-berkas" class="hidden p-6 sm:p-10">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-start gap-3">
+                        <i class="fa-solid fa-circle-info text-amber-600 mt-0.5 text-lg"></i>
+                        <p class="text-sm text-amber-900">
+                            Seluruh berkas persyaratan dibuat dalam <strong>rangkap 4 (dua)</strong>dan diserahkan langsung oleh bakal calon kepada Panitia di Sekretariat.
+                        </p>
+                    </div>
+                    <ol class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <span>Surat pernyataan bertakwa kepada Tuhan Yang Maha Esa, dibuat oleh Bakal Calon di atas kertas bermeterai cukup</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <span>Surat pernyataan memegang teguh dan mengamalkan Pancasila, Undang-Undang Dasar Negara Republik Indonesia Tahun 1945,
+                            mempertahankan dan memelihara keutuhan Negara Kesatuan Republik Indonesia dan Bhinneka Tunggal Ika, dibuat oleh Bakal
+                            Calon di atas kertas bermeterai cukup</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <span>Fotokopi kartu tanda penduduk Bakal Calon dengan kewarganegaraan Indonesia</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+                            <span>Fotokopi kartu keluarga Bakal Calon yang dilegalisasi oleh pejabat yang berwenang atau fotokopi kartu keluarga Bakal
+                            Calon yang ditanda tangani secara elektronik</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">5</span>
+                            <span>Fotokopi ijazah pendidikan formal tingkat dasar sampai dengan ijazah terakhir Bakal Calon yang dilegalisasi oleh pejabat
+                            berwenang atau surat keterangan dari pejabat yang berwenang</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">6</span>
+                            <span>Fotokopi kutipan akta kelahiran Bakal Calon yang dilegalisasi oleh pejabat yang berwenang atau fotokopi kutipan akta
+                            kelahiran Bakal Calon yang ditanda tangani secara elektronik</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">7</span>
+                            <span>Surat keterangan yang diterbitkan oleh pengadilan negeri setempat yang menerangkan bahwa Bakal Calon tidak pernah
+                            dijatuhi pidana penjara berdasarkan putusan pengadilan yang telah mempunyai kekuatan hukum tetap karena melakukan tindak
+                            pidana yang diancam dengan pidana penjara paling singkat 5 (lima) tahun atau lebih</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">8</span>
+                            <span>Surat pernyataan telah 5 (lima) tahun atau lebih selesai menjalani pidana penjara dan telah mengumumkan secara jujur dan
+                            terbuka kepada publik bahwa yang bersangkutan pernah dipidana serta bukan sebagai pelaku kejahatan berulang-ulang bagi
+                            Bakal Calon yang pernah dijatuhi pidana penjara berdasarkan putusan pengadilan yang telah mempunyai kekuatan hukum tetap
+                            karena melakukan tindak pidana yang diancam dengan pidana penjara paling singkat 5 (lima) tahun atau lebih, dibuat di
+                            atas kertas bermeterai cukup</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">9</span>
+                            <span>Surat keterangan yang diterbitkan oleh pengadilan negeri setempat yang menerangkan bahwa Bakal Calon tidak sedang
+                            dicabut hak pilihnya berdasarkan putusan pengadilan yang telah mempunyai kekuatan hukum tetap</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">10</span>
+                            <span>Surat keterangan berbadan sehat dari rumah sakit umum Daerah milik Pemerintah</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">11</span>
+                            <span>Surat keterangan bebas narkoba yang diterbitkan rumah sakit pemerintah, rumah sakit Kepolisian Negara Republik
+                            Indonesia, atau Badan Narkotika Nasional</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">12</span>
+                            <span>Surat pernyataan dari Bakal Calon yang menyatakan bahwa yang bersangkutan tidak pernah menjadi kepala Desa selama 3
+                            (tiga) kali masa jabatan secara berturut turut atau tidak berturut-turut, dibuat di atas kertas bermeterai cukup</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">13</span>
+                            <span>Surat keterangan dari Pemerintah Daerah yang menerangkan bahwa yang bersangkutan tidak pernah menjadi kepala Desa selama
+                            3 (tiga) kali masa jabatan secara berturut-turut atau tidak berturut-turut, dibuat dan ditandatangani Camat</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">14</span>
+                            <span>Surat keterangan catatan kepolisian dari Kepolisian Negara Republik Indonesia</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">15</span>
+                            <span>Surat izin tertulis dari atasan atau pejabat yang berwenang dan surat cuti karena alasan penting bagi Bakal Calon yang
+                            berstatus PNS</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">16</span>
+                            <span>Surat izin tertulis dari atasan atau pejabat yang berwenang dan surat cuti bagi Bakal Calon yang berstatus PPPK</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">17</span>
+                            <span>Surat cuti bagi Bakal Calon yang berasal dari Kepala Desa/Pj Kepala Desa (sejak ditetapkan sebagai Calon s/d penetapan calon terpilih)</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">18</span>
+                            <span>Surat cuti bagi Bakal Calon yang berasal dari Perangkat Desa (sejak mendaftar s/d penetapan calon )</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">19</span>
+                            <span>Daftar riwayat hidup bermeterai cukup</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">20</span>
+                            <span>Pas photo berwarna background merah terbaru ukuran 4 x 6 cm </span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">21</span>
+                            <span>Surat pernyataan bersedia dicalonkan menjadi Kepala Desa dan tidak akan mengundurkan diri dalam proses pemilihan Kepala
+                            Desa, dibuat di atas kertas bermeterai cukup</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50">
+                            <span
+                                class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">22</span>
+                            <span>Surat pernyataan bersedia bertempat tinggal di Desa yang bersangkutan selama menjabat sebagai Kepala Desa, dibuat di
+                            atas kertas bermeterai cukup</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Footer Kotak Persyaratan: Tombol Unduh Simulasi -->
+                <div class="bg-slate-900 px-6 py-5 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="text-center sm:text-left">
+                        <p class="text-white font-semibold text-sm sm:text-base">Unduk Contoh Format Surat Pernyataan & Lamaran</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="berkas/Contoh Format SURAT PERNYATAAN.doc" download
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-white text-sm font-medium transition">
+                            <i class="fa-solid fa-file-word"></i>
+                            <span>Surat Pernyataan (.doc)</span>
+                        </a>
+                        <a href="berkas/Contoh SURAT LAMARAN.pdf" download
+                            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-desa-green hover:bg-desa-greenLight text-white text-sm font-medium transition">
+                            <i class="fa-solid fa-file-word"></i>
+                            <span>Surat Lamaran(.doc)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DAFTAR BAKAL CALON TERDAFTAR (SEMENTARA) -->
+    <section id="bakal-calon" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <span class="text-xs font-bold tracking-wider uppercase text-blue-800 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">Transparansi Publik</span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-3">Daftar Bakal Calon Terdaftar (Sementara)</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl">
+                    Segera
+                </p>
+            </div>
+            <div class="text-xs text-slate-500 bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-sm">
+                <i class="fa-solid fa-rotate text-emerald-600 mr-1.5"></i> Diperbarui: <strong>24 Nov 2026, 16:00 WIB</strong>
+            </div>
+        </div> 
+    
+        
+        <!-- Grid Kartu Kandidat -->
+        
+        
+        
+    </section>
+
+    <!-- 6. FAQ & INFORMASI KONTAK SEKRETARIAT PANITIA -->
+    <section id="faq" class="py-16 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Kolom Kiri: FAQ Accordion (7 Kolom) -->
+                <div class="lg:col-span-7">
+                    <span class="text-xs font-bold tracking-wider uppercase text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Pusat Bantuan</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-6">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+
+                    <div class="space-y-3" id="faq-container">
+                        <!-- FAQ 1 -->
+                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                            <button onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left flex justify-between items-center gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+                                <span class="text-sm sm:text-base">Apakah warga di luar Desa Ringgit diperbolehkan mendaftar sebagai Calon Kepala Desa?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                                Sesuai Putusan Mahkamah Konstitusi Nomor 128/PUU-XIII/2015 dan peraturan perundang-undangan yang berlaku, setiap Warga Negara Indonesia (WNI) yang memenuhi persyaratan umum dan administrasi berhak mendaftarkan diri sebagai Bakal Calon Kepala Desa tanpa dibatasi syarat domisili/terdaftar sebagai penduduk desa setempat sebelum pencalonan.
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                            <button onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left flex justify-between items-center gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+                                <span class="text-sm sm:text-base">Bagaimana ketentuan bagi Perangkat Desa, Anggota BPD, atau ASN/TNI/Polri yang ingin mendaftar?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>Perangkat Desa:</strong> Wajib mengajukan cuti terhitung sejak terdaftar sebagai bakal calon sampai selesainya pelaksanaan penetapan calon terpilih.</li>
+                                    <li><strong>Anggota BPD:</strong> Wajib mengundurkan diri dari keanggotaan BPD sejak ditetapkan sebagai calon Kepala Desa.</li>
+                                    <li><strong>PNS / ASN / TNI / Polri:</strong> Wajib mendapatkan izin tertulis dari Pejabat Pembina Kepegawaian (PPK) atau atasan yang berwenang.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 3 -->
+                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                            <button onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left flex justify-between items-center gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+                                <span class="text-sm sm:text-base">Apakah ada biaya pendaftaran bagi Bakal Calon Kepala Desa?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                                <strong>Tidak dipungut biaya apapun (GRATIS).</strong> Seluruh biaya penyelenggaraan Pemilihan Kepala Desa Ringgit dibebankan pada Anggaran Pendapatan dan Belanja Daerah (APBD) Kabupaten serta Anggaran Pendapatan dan Belanja Desa (APBDes).
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden">
+                            <button onclick="toggleFaq(this)" class="w-full px-5 py-4 text-left flex justify-between items-center gap-4 font-bold text-slate-900 hover:bg-slate-50 transition">
+                                <span class="text-sm sm:text-base">Bagaimana jika hingga batas akhir pendaftaran jumlah bakal calon kurang dari 2 orang?</span>
+                                <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-answer hidden px-5 pb-4 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                                Apabila sampai batas waktu pendaftaran ditutup bakal calon yang mendaftar kurang dari 2 (dua) orang, maka Panitia Pemilihan Kepala Desa akan memperpanjang waktu pendaftaran selama 15 (lima belas) hari yaitu tanggal 8 - 30 Desember 2026. 
+                                Apabila setelah perpanjangan masa pendaftaran ke 1 berakhir bakal calon masih kurang dari 2 (dua), maka waktu pendaftaran 
+                                diperpanjang selama 10 (sepuluh) hari berikutnya mulai tanggal 31 Desember 2026 – 15 Januari 2027.
+                                Jika setelah masa perpanjangan kedua jumlah bakal calon masih kurang dari 2 (dua), maka Panitia Pemilihan Kepala Desa bersama-sama dengan BPD menetapkan Bakal Calon terdaftar menjadi Calon secara musyawarah untuk mufakat yang dituangkan
+                                dalam berita acara.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Kartu Sekretariat Panitia Pilkades (5 Kolom) -->
+                <div class="lg:col-span-5">
+                    <div class="bg-gradient-to-br from-desa-navy to-desa-blue text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-700 sticky top-28">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 text-xl">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Layanan Informasi</span>
+                                <h3 class="text-xl font-extrabold">Sekretariat Panitia Pilkades Ringgit</h3>
+                            </div>
+                        </div>
+
+                        <div class="space-y-5 text-sm">
+                            <div class="flex items-start gap-3.5">
+                                <i class="fa-solid fa-location-dot text-amber-400 text-base mt-1"></i>
+                                <div>
+                                    <span class="block font-bold text-white">Alamat Sekretariat</span>
+                                    <p class="text-slate-300 mt-0.5 leading-relaxed">
+                                        Kantor Desa Ringgit
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3.5">
+                                <i class="fa-regular fa-clock text-amber-400 text-base mt-1"></i>
+                                <div>
+                                    <span class="block font-bold text-white">Jam Operasional Pendaftaran</span>
+                                    <p class="text-slate-300 mt-0.5">Senin – Kamis: <strong>7.30 – 16.00 WIB</strong></p>
+                                    <p class="text-slate-300 mt-0.5">Jumat: <strong>7.30 – 14.00 WIB</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="border-slate-700 my-6">
+
+                        <!-- Tombol Kontak WhatsApp -->
+                        <div class="space-y-3">
+                            <a href="https://wa.me/6285643274269?text=Halo%20Panitia%20Pilkades%20Desa%20Ringgit,%20saya%20ingin%20bertanya%20mengenai%20pendaftaran%20Pilkades%202026." target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-900/50">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Hubungi WhatsApp Panitia</span>
+                            </a>
+                
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER RESMI PANITIA PEMILIHAN KEPALA DESA -->
+    <footer class="bg-desa-navy text-slate-300 pt-14 pb-8 border-t-4 border-amber-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-slate-800">
+                <!-- Kolom 1: Identitas -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-desa-green p-1.5 border border-amber-400/50">
+                            <img src="gambar/Purworejo.png" alt="Logo Pilkades Desa Ringgit" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="block text-sm font-extrabold text-white">PANITIA PILKADES DESA RINGGIT</span>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        Panitia Pemilihan Kepala Desa Desa Ringgit dibentuk berdasarkan Keputusan Badan Permusyawaratan Desa (BPD) untuk menyelenggarakan Pilkades yang Langsung, Umum, Bebas, Rahasia, Jujur, dan Adil.
+                    </p>
+                </div>
+
+                <!-- Kolom 2: Tautan Cepat -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Navigasi Pengumuman</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#beranda" class="hover:text-amber-400 transition">Beranda & Pengumuman</a></li>
+                        <li><a href="#jadwal" class="hover:text-amber-400 transition">Jadwal Tahapan Pilkades</a></li>
+                        <li><a href="#persyaratan" class="hover:text-amber-400 transition">Persyaratan & Unduh Formulir</a></li>
+                        <li><a href="#bakal-calon" class="hover:text-amber-400 transition">Daftar Bakal Calon Sementara</a></li>
+                        <li><a href="#faq" class="hover:text-amber-400 transition">Pertanyaan Umum (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Landasan Hukum -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Landasan Hukum</h4>
+                    <ul class="space-y-2 text-xs text-slate-400 leading-relaxed">
+                        <li>• Undang-Undang Nomor 6 Tahun 2014 tentang Desa sebagaimana telah diubah beberapa kali terakhir dengan Undang-Undang
+                        Nomor 3 Tahun 2024.</li>
+                        <li>• Peraturan Pemerintah Nomor 16 Tahun 2026 tentang Peraturan Pelaksanaan Undang-Undang Nomor 6 Tahun 2014.</li>
+                        <li>• Peraturan Daerah Kabupaten Purworejo Nomor 11 Tahun 2022 tentang Pemilihan Kepala Desa.</li>
+                        <li>• Peraturan Bupati Purworejo Nomor 17 Tahun 2023 tentang Peraturan Pelaksanaan Peraturan Daerah Nomor 11 Tahun 2022
+                        tentang Pemilihan Kepala Desa.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+                <p>&copy; 2026 Panitia Pemilihan Kepala Desa Ringgit.</p>
+                <p class="text-amber-400/90 font-medium">"Sukseskan Pilkades Damai, Jujur, dan Bermartabat"</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 2: DETAIL PROFIL BAKAL CALON -->
+    <div id="modal-kandidat" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
+        <div class="bg-white rounded-2xl max-w-xl w-full shadow-2xl border border-slate-200 overflow-hidden">
+            <div class="bg-desa-navy text-white px-6 py-4 flex justify-between items-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-400" id="mk-reg">Reg. Sementara #01</span>
+                <button onclick="closeKandidatModal()" class="text-white/80 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+                <div>
+                    <h3 class="text-xl font-extrabold text-slate-900" id="mk-nama">Nama Bakal Calon</h3>
+                    <p class="text-sm text-slate-600 mt-1" id="mk-pendidikan">Pendidikan & Alamat</p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <span class="text-slate-400 block">Tanggal Mendaftar</span>
+                        <strong class="text-slate-800 text-sm" id="mk-tanggal">24 Nov 2026</strong>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <span class="text-slate-400 block">Status Administrasi</span>
+                        <strong class="text-emerald-700 text-sm" id="mk-status">Berkas Lengkap</strong>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Visi Utama</h4>
+                    <p class="text-sm text-slate-800 bg-amber-50/70 border border-amber-200/80 p-3.5 rounded-xl italic" id="mk-visi"></p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Pokok Program Kerja / Misi</h4>
+                    <ul class="space-y-2 text-sm text-slate-700 list-disc pl-5" id="mk-misi"></ul>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 px-6 py-3.5 border-t border-slate-200 flex justify-end">
+                <button onclick="closeKandidatModal()" class="px-5 py-2 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition">
+                    Tutup Profil
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interaktif -->
+    <script>
+        // 1. Toggle Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Countdown Timer Interaktif menuju Penutupan Pendaftaran (03 Desember 2026, 16:00 WIB)
+        const deadlineDate = new Date('2026-12-07T16:00:00+07:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = deadlineDate - now;
+
+            if (distance <= 0) {
+                document.getElementById('cd-days').innerText = '00';
+                document.getElementById('cd-hours').innerText = '00';
+                document.getElementById('cd-minutes').innerText = '00';
+                document.getElementById('cd-seconds').innerText = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+            document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('cd-minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('cd-seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // 3. Filter Jadwal & Tahapan Pilkades
+        function filterTahapan(kategori) {
+            const cards = document.querySelectorAll('.tahapan-card');
+            const buttons = document.querySelectorAll('.filter-tahapan-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-desa-green', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            });
+
+            const activeBtn = document.getElementById(`btn-filter-${kategori}`);
+            activeBtn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+            activeBtn.classList.add('bg-desa-green', 'text-white', 'shadow-sm');
+
+            cards.forEach(card => {
+                const status = card.getAttribute('data-status');
+                if (kategori === 'semua' || status === kategori) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // 4. Tab Persyaratan Pencalonan
+        function switchSyaratTab(tabName) {
+            const btnUmum = document.getElementById('tab-btn-umum');
+            const btnBerkas = document.getElementById('tab-btn-berkas');
+            const contentUmum = document.getElementById('tab-content-umum');
+            const contentBerkas = document.getElementById('tab-content-berkas');
+
+            if (tabName === 'umum') {
+                btnUmum.classList.add('border-desa-green', 'bg-white', 'text-desa-green');
+                btnUmum.classList.remove('border-transparent', 'text-slate-600');
+                btnBerkas.classList.remove('border-desa-green', 'bg-white', 'text-desa-green');
+                btnBerkas.classList.add('border-transparent', 'text-slate-600');
+
+                contentUmum.classList.remove('hidden');
+                contentBerkas.classList.add('hidden');
+            } else {
+                btnBerkas.classList.add('border-desa-green', 'bg-white', 'text-desa-green');
+                btnBerkas.classList.remove('border-transparent', 'text-slate-600');
+                btnUmum.classList.remove('border-desa-green', 'bg-white', 'text-desa-green');
+                btnUmum.classList.add('border-transparent', 'text-slate-600');
+
+                contentBerkas.classList.remove('hidden');
+                contentUmum.classList.add('hidden');
+            }
+        }
+
+        // 5. Modal Pratinjau & Simulasi Unduh Formulir
+        let currentFormat = 'PDF';
+
+        function openFormulirModal(format) {
+            currentFormat = format;
+            const modal = document.getElementById('modal-formulir');
+            document.getElementById('format-badge').innerText = format;
+            document.getElementById('btn-download-label').innerText = `Unduh Bundel (${format})`;
+            document.getElementById('download-status-box').classList.add('hidden');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeFormulirModal() {
+            const modal = document.getElementById('modal-formulir');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function simulasiUnduhSekarang() {
+            const ext = currentFormat.toLowerCase();
+            const fileName = `Bundel_Formulir_Pilkades_Sukamaju_2026.${ext}`;
+            document.getElementById('downloaded-filename').innerText = fileName;
+            document.getElementById('download-status-box').classList.remove('hidden');
+        }
+
+        // 6. Data & Modal Detail Profil Bakal Calon
+
+        // 7. Accordion FAQ
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // 8. Salin Nomor WhatsApp ke Clipboard
+        function salinNomorWA() {
+            const nomor = '+62 812-3456-7890';
+            const tempInput = document.createElement('input');
+            tempInput.value = nomor;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast-notif');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3000);
+        }
+
+        // Tutup modal jika klik di luar area konten modal
+        window.addEventListener('click', (e) => {
+            const modalFormulir = document.getElementById('modal-formulir');
+            const modalKandidat = document.getElementById('modal-kandidat');
+            if (e.target === modalFormulir) closeFormulirModal();
+            if (e.target === modalKandidat) closeKandidatModal();
+        });
+    </script>
+</body>
+</html>
