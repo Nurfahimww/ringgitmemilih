@@ -88,7 +88,7 @@
                     <a href="#beranda" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Beranda</a>
                     <a href="#jadwal" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Jadwal Tahapan</a>
                     <a href="#persyaratan" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Syarat Pencalonan</a>
-                    <a href="#bakal-calon" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Bakal Calon</a>
+                    <a href="#bakal-calon" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">Kandidat</a>
                     <a href="#faq" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-desa-green hover:bg-emerald-50 transition">FAQ</a>
                 </div>
 
@@ -106,7 +106,7 @@
             <a href="#beranda" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Beranda</a>
             <a href="#jadwal" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Jadwal Tahapan</a>
             <a href="#persyaratan" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Syarat Pencalonan</a>
-            <a href="#bakal-calon" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Bakal Calon Terdaftar</a>
+            <a href="#bakal-calon" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">Kandidat</a>
             <a href="#faq" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-emerald-50 hover:text-desa-green">FAQ & Sekretariat</a>
         </div>
     </nav>
@@ -403,14 +403,27 @@
             <!-- Kontainer Tab -->
             <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                 <!-- Header Tab -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 border-b border-slate-200 bg-slate-50">
-                    <button id="tab-btn-umum" onclick="switchSyaratTab('umum')" class="py-4 px-6 text-sm sm:text-base font-bold text-left sm:text-center flex items-center justify-center gap-2 border-b-4 border-desa-green bg-white text-desa-green transition">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                        <span>A. Persyaratan Umum Calon</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2.5 bg-slate-100 border-b border-slate-200" role="tablist">
+                    <button id="tab-btn-umum" type="button" role="tab" aria-selected="true" onclick="switchSyaratTab('umum')"
+                        class="w-full py-3.5 px-4 rounded-xl text-left flex items-center gap-3 border-2 border-desa-green bg-white text-desa-green shadow-sm transition cursor-pointer">
+                        <span class="w-9 h-9 rounded-lg bg-emerald-100 text-desa-green flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-scale-balanced text-base"></i>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-sm sm:text-base font-bold leading-snug">A. Persyaratan Umum Calon</span>
+                            <span class="block text-xs text-slate-500 font-normal mt-0.5">Ketentuan dasar & kualifikasi</span>
+                        </span>
                     </button>
-                    <button id="tab-btn-berkas" onclick="switchSyaratTab('berkas')" class="py-4 px-6 text-sm sm:text-base font-bold text-left sm:text-center flex items-center justify-center gap-2 border-b-4 border-transparent text-slate-600 hover:text-slate-900 transition">
-                        <i class="fa-solid fa-folder-open"></i>
-                        <span>B. Kelengkapan Berkas Administrasi</span>
+                
+                    <button id="tab-btn-berkas" type="button" role="tab" aria-selected="false" onclick="switchSyaratTab('berkas')"
+                        class="w-full py-3.5 px-4 rounded-xl text-left flex items-center gap-3 border-2 border-transparent bg-slate-50/80 hover:bg-white text-slate-600 hover:text-slate-900 transition cursor-pointer">
+                        <span class="w-9 h-9 rounded-lg bg-slate-200/80 text-slate-600 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-folder-open text-base"></i>
+                        </span>
+                        <span class="min-w-0">
+                            <span class="block text-sm sm:text-base font-bold leading-snug">B. Kelengkapan Berkas Administrasi</span>
+                            <span class="block text-xs text-slate-500 font-normal mt-0.5">Dokumen wajib & template surat</span>
+                        </span>
                     </button>
                 </div>
 
@@ -959,7 +972,44 @@
         }
 
         // 4. Tab Persyaratan Pencalonan
-        function switchSyaratTab(tabName) {
+       function switchSyaratTab(tabName) {
+            const btnUmum = document.getElementById('tab-btn-umum');
+            const btnBerkas = document.getElementById('tab-btn-berkas');
+            const contentUmum = document.getElementById('tab-content-umum');
+            const contentBerkas = document.getElementById('tab-content-berkas');
+
+            const iconUmum = btnUmum.querySelector('span:first-child');
+            const iconBerkas = btnBerkas.querySelector('span:first-child');
+
+            const activeBtnClasses = ['border-desa-green', 'bg-white', 'text-desa-green', 'shadow-sm'];
+            const inactiveBtnClasses = ['border-transparent', 'bg-slate-50/80', 'text-slate-600'];
+
+            const activeIconClasses = ['bg-emerald-100', 'text-desa-green'];
+            const inactiveIconClasses = ['bg-slate-200/80', 'text-slate-600'];
+
+            const isUmum = tabName === 'umum';
+
+            btnUmum.classList.remove(...(isUmum ? inactiveBtnClasses : activeBtnClasses));
+            btnUmum.classList.add(...(isUmum ? activeBtnClasses : inactiveBtnClasses));
+            btnUmum.setAttribute('aria-selected', String(isUmum));
+
+            btnBerkas.classList.remove(...(!isUmum ? inactiveBtnClasses : activeBtnClasses));
+            btnBerkas.classList.add(...(!isUmum ? activeBtnClasses : inactiveBtnClasses));
+            btnBerkas.setAttribute('aria-selected', String(!isUmum));
+
+            if (iconUmum) {
+                iconUmum.classList.remove(...(isUmum ? inactiveIconClasses : activeIconClasses));
+                iconUmum.classList.add(...(isUmum ? activeIconClasses : inactiveIconClasses));
+            }
+
+            if (iconBerkas) {
+                iconBerkas.classList.remove(...(!isUmum ? inactiveIconClasses : activeIconClasses));
+                iconBerkas.classList.add(...(!isUmum ? activeIconClasses : inactiveIconClasses));
+            }
+
+            contentUmum.classList.toggle('hidden', !isUmum);
+            contentBerkas.classList.toggle('hidden', isUmum);
+        }
             const btnUmum = document.getElementById('tab-btn-umum');
             const btnBerkas = document.getElementById('tab-btn-berkas');
             const contentUmum = document.getElementById('tab-content-umum');
